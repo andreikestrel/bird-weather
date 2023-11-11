@@ -2,7 +2,9 @@
 
 ## Status do Projeto: Em Andamento
 
-bird é uma aplicação que permite aos usuários consultar a temperatura atual de uma cidade específica.
+Bird Weather é uma aplicação que permite aos usuários consultar a temperatura atual de uma cidade específica.
+![image](https://github.com/andreikestrel/bird-weather/assets/96220262/ca85995a-ea1f-47e5-8a50-8ce7fe181ce5)
+
 ## Tecnologias Utilizadas
 
 - **Next.js:** Framework de React para desenvolvimento de aplicações web do lado do servidor.
