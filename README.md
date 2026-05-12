@@ -2,7 +2,8 @@
 
 Plataforma de clima em tempo real para qualquer cidade do mundo — com alertas personalizados, blog de meteorologia e visual moderno.
 
-![Bird Weather](https://github.com/andreikestrel/bird-weather/assets/96220262/ca85995a-ea1f-47e5-8a50-8ce7fe181ce5)
+<img width="1904" height="942" alt="image" src="https://github.com/user-attachments/assets/c0c8e654-e0c4-42f9-85a4-f1e6df5a1b3c" />
+
 
 ---
 
