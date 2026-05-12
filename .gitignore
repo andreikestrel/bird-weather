@@ -34,3 +34,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude code
+CLAUDE.md
+.env.local
+
+# uploaded images
+/public/uploads/
+
+# database
+prisma/dev.db
+prisma/*.db-journal

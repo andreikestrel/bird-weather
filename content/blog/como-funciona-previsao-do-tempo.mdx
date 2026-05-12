@@ -1,0 +1,62 @@
+---
+title: Como Funciona a Previsão do Tempo?
+date: 2026-05-10
+excerpt: Entenda os bastidores da meteorologia moderna — de satélites a algoritmos que preveem o clima com dias de antecedência.
+author: Andrei Barbosa
+tags: [meteorologia, tecnologia, ciência]
+---
+
+## O que está por trás da previsão do tempo?
+
+Quando você abre um app de clima e vê "30% de chance de chuva amanhã", esse número não saiu do nada. Ele é resultado de décadas de ciência, terabytes de dados e supercomputadores rodando simulações complexíssimas do sistema atmosférico terrestre.
+
+## Coleta de dados: o ponto de partida
+
+A previsão começa com dados. Muitos dados. Eles vêm de:
+
+- **Estações meteorológicas** em terra — mais de 10.000 ao redor do mundo
+- **Radiossondas** — balões que sobem até 30km de altitude medindo temperatura, pressão e umidade
+- **Satélites meteorológicos** — oferecem imagens do planeta de hora em hora
+- **Boias oceânicas** — medem temperatura da superfície do mar
+- **Aviões comerciais** — enviam dados de temperatura e vento durante o voo
+
+Todos esses dados são coletados de forma padronizada a cada 6 horas e compartilhados entre países através da Organização Meteorológica Mundial (OMM).
+
+## Os modelos numéricos
+
+Com os dados em mãos, meteorologistas usam **Modelos de Previsão Numérica do Tempo (NWP)**. São equações físicas que descrevem como a atmosfera se comporta:
+
+```
+∂T/∂t = -v·∇T + diabatic_terms
+```
+
+Na prática, o globo terrestre é dividido em uma grade 3D (com células de ~10km de lado e dezenas de camadas verticais). Para cada célula, o modelo calcula como temperatura, pressão, vento e umidade vão evoluir.
+
+Os principais modelos são:
+- **GFS** (Global Forecast System) — americano, gratuito
+- **ECMWF** — europeu, considerado o mais preciso do mundo
+- **GEM** — canadense
+
+## Por que a previsão fica menos precisa no longo prazo?
+
+A atmosfera é um **sistema caótico**. Pequenas variações nas condições iniciais se amplificam exponencialmente ao longo do tempo — é o famoso "efeito borboleta".
+
+Por isso:
+- Previsão para amanhã: ~90% de acurácia
+- Previsão para 3 dias: ~80%
+- Previsão para 7 dias: ~50-60%
+- Previsão para 15+ dias: não confiável
+
+## Como o Bird Weather usa esses dados
+
+O Bird Weather conecta a **OpenWeatherMap API**, que agrega dados de múltiplos modelos numéricos e estações ao redor do mundo. Quando você busca "São Paulo", recebemos:
+
+- Temperatura atual e previsão de 5 dias
+- Umidade, pressão, velocidade do vento
+- Condição do céu (nublado, chuva, ensolarado)
+
+Tudo isso em segundos, para qualquer cidade do mundo.
+
+## Conclusão
+
+A previsão do tempo é uma conquista científica extraordinária. De balões e termômetros a satélites e IA, a meteorologia moderna consegue algo que parecia impossível há 100 anos: olhar para o futuro com precisão crescente.
