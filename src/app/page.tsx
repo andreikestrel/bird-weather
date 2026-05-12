@@ -1,5 +1,4 @@
 import CityAutocomplete from '@/components/search/CityAutocomplete'
-import CityHistory from '@/components/search/CityHistory'
 import WeatherDisplay from '@/components/weather/WeatherDisplay'
 
 export default function HomePage() {
@@ -15,7 +14,6 @@ export default function HomePage() {
           </p>
         </div>
         <CityAutocomplete />
-        <CityHistory />
         <WeatherDisplay />
       </div>
     </main>
