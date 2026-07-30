@@ -27,8 +27,8 @@ export default function PostCard({ post }: PostCardProps) {
         <h2 className="font-heading font-bold text-slate-800 dark:text-white text-xl mb-2 group-hover:text-primary dark:group-hover:text-primary-light transition-colors leading-snug">
           {post.title}
         </h2>
-        <p className="text-slate-500 dark:text-white/60 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
-        <div className="flex items-center gap-4 text-xs text-slate-400 dark:text-white/40">
+        <p className="text-slate-500 dark:text-white/60 dark:group-hover:text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3 transition-colors">{post.excerpt}</p>
+        <div className="flex items-center gap-4 text-xs text-slate-400 dark:text-white/40 dark:group-hover:text-slate-500 transition-colors">
           <span className="flex items-center gap-1.5">
             <Calendar size={12} />
             {date}
