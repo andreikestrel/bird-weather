@@ -8,7 +8,7 @@ const updateSchema = z.object({
   subtitle: z.string().max(300).optional(),
   excerpt: z.string().min(1).max(500).optional(),
   content: z.string().min(1).optional(),
-  coverImage: z.string().url().nullable().optional(),
+  coverImage: z.string().url().nullable().optional().or(z.literal('')),
   tags: z.string().optional(),
   published: z.boolean().optional(),
 })

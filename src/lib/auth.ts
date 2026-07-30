@@ -1,29 +1,41 @@
 import NextAuth from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
-import { PrismaAdapter } from '@auth/prisma-adapter'
+import CredentialsProvider from 'next-auth/providers/credentials'
 import { prisma } from '@/lib/db'
 
-const allowedEmails = (process.env.ALLOWED_EMAILS ?? '')
-  .split(',')
-  .map((e) => e.trim().toLowerCase())
-  .filter(Boolean)
+const ADMIN_USERNAME = 'adminBird'
+const ADMIN_PASSWORD = '123456'
+const ADMIN_EMAIL = 'admin@birdweather.local'
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  adapter: PrismaAdapter(prisma),
+  session: { strategy: 'jwt' },
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        username: { label: 'Usuário', type: 'text' },
+        password: { label: 'Senha', type: 'password' },
+      },
+      async authorize(credentials) {
+        if (credentials?.username !== ADMIN_USERNAME || credentials?.password !== ADMIN_PASSWORD) {
+          return null
+        }
+        const user = await prisma.user.upsert({
+          where: { email: ADMIN_EMAIL },
+          update: {},
+          create: { email: ADMIN_EMAIL, name: ADMIN_USERNAME },
+        })
+        return { id: user.id, name: user.name, email: user.email }
+      },
     }),
   ],
   callbacks: {
-    signIn({ user }) {
-      if (allowedEmails.length === 0) return true
-      return allowedEmails.includes(user.email?.toLowerCase() ?? '')
+    jwt({ token, user }) {
+      if (user) token.id = user.id
+      return token
     },
-    session({ session, user }) {
+    session({ session, token }) {
       if (session.user) {
-        session.user.id = user.id
+        session.user.id = token.id as string
       }
       return session
     },

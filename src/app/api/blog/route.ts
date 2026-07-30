@@ -8,7 +8,7 @@ const createSchema = z.object({
   subtitle: z.string().max(300).optional(),
   excerpt: z.string().min(1).max(500),
   content: z.string().min(1),
-  coverImage: z.string().url().optional(),
+  coverImage: z.string().url().optional().or(z.literal('')),
   tags: z.string().default(''),
   published: z.boolean().default(false),
 })

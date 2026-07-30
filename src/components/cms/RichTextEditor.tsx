@@ -32,6 +32,7 @@ interface RichTextEditorProps {
 
 export default function RichTextEditor({ content, onChange, placeholder }: RichTextEditorProps) {
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit,
       Underline,
@@ -79,7 +80,7 @@ export default function RichTextEditor({ content, onChange, placeholder }: RichT
 
   async function insertImage() {
     const url = window.prompt('URL da imagem (ou faça upload abaixo):')
-    if (url) editor.chain().focus().setImage({ src: url }).run()
+    if (url) editor?.chain().focus().setImage({ src: url }).run()
   }
 
   return (
